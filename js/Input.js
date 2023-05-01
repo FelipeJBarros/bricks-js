@@ -3,7 +3,7 @@ class Mouse {
   static y = 400;
 
   static getMousePosition(event) {
-    let rect = Game.canvas.getBoundingClientRect();
+    let rect = World.canvas.getBoundingClientRect();
     let root = document.documentElement;
 
     Mouse.x = event.clientX - rect.left - root.scrollLeft;

@@ -14,8 +14,8 @@ class Bricks {
   }
 
   getBrickColor(height) {
-    let heigthToColor = Math.floor((255 * (160 + this.height * height)) / 600);
-    return `#4499${heigthToColor.toString(16)}`;
+    let heigthToColor = Math.floor((255 * (190 + this.height * height)) / 600);
+    return `#47af${heigthToColor.toString(16)}`;
   }
 
   move(delta) {}
@@ -31,13 +31,6 @@ class Bricks {
             this.width - this.gap,
             this.height - this.gap,
             brickColor
-          );
-          // debug
-          drawText(
-            `${arrayIndex} - ${this.width * row} x ${this.height * column}`,
-            this.width * row + this.width / 2 - 32,
-            this.height * column + this.height / 2,
-            "white"
           );
         }
       }

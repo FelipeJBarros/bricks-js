@@ -14,62 +14,11 @@
     <script src="js/Ball.js"></script>
     <script src="js/Paddle.js"></script>
     <script src="js/Bricks.js"></script>
-    <script src="js/Game.js"></script>
+    <script src="js/Timer.js"></script>
+    <script src="js/World.js"></script>
     <script>
-      let ball = new Ball(
-        Game.canvas.width / 2,
-        Game.canvas.height / 2,
-        0.2,
-        0.2,
-        10,
-        "yellow"
-      );
-
-      let paddle = new Paddle(
-        Game.canvas.width / 2,
-        Game.canvas.height - 40,
-        120,
-        20,
-        "#449988"
-      );
-
-      let bricks = new Bricks(8, 4, 100, 50, 2);
-
-      const entities = [bricks, ball, paddle];
-
-      function move(timeStep) {
-        entities.forEach((entity) => entity.move(timeStep));
-        ball.verifyColisionWithPaddle(paddle);
-        ball.verifyColisionWithBricks(bricks, timeStep);
-      }
-
-      function draw() {
-        drawRect(0, 0, Game.canvas.width, Game.canvas.height, "#222");
-        entities.forEach((entity) => entity.draw());
-      }
-
-      function loop(timeStamp) {
-        if (timeStamp < Game.lastFrameTimeMs + Game.timeStep) {
-          requestAnimationFrame(loop);
-          return;
-        }
-
-        Game.lag += timeStamp - Game.lastFrameTimeMs;
-        Game.lastFrameTimeMs = timeStamp;
-
-        while (Game.lag >= Game.timeStep) {
-          move(Game.timeStep);
-          Game.lag -= Game.timeStep;
-        }
-
-        draw();
-
-        requestAnimationFrame(loop);
-      }
-
       window.onload = () => {
-        Game.canvas.addEventListener("mousemove", Mouse.getMousePosition);
-        requestAnimationFrame(loop);
+        let world = new World();
       };
     </script>
   </body>

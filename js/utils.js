@@ -1,18 +1,19 @@
 function drawRect(x, y, width, height, color) {
-  Game.context.fillStyle = color;
-  Game.context.fillRect(x, y, width, height);
+  World.context.fillStyle = color;
+  World.context.fillRect(x, y, width, height);
 }
 
 function drawCircle(x, y, radius, color) {
-  Game.context.fillStyle = color;
-  Game.context.beginPath();
-  Game.context.arc(x, y, radius, 0, Math.PI * 2, true);
-  Game.context.fill();
+  World.context.fillStyle = color;
+  World.context.beginPath();
+  World.context.arc(x, y, radius, 0, Math.PI * 2, true);
+  World.context.fill();
 }
 
-function drawText(text, x, y, color) {
-  Game.context.fillStyle = color;
-  Game.context.fillText(text, x, y);
+function drawText(text, x, y, color, font = "") {
+  World.context.fillStyle = color;
+  World.context.font = font;
+  World.context.fillText(text, x, y);
 }
 
 function getRandomBetween(min, max, precision = 1) {

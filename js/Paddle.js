@@ -14,8 +14,8 @@ class Paddle {
       this.x = this.width / 2;
     }
 
-    if (this.x + this.width / 2 >= Game.canvas.width) {
-      this.x = Game.canvas.width - this.width / 2;
+    if (this.x + this.width / 2 >= World.canvas.width) {
+      this.x = World.canvas.width - this.width / 2;
     }
   }
 

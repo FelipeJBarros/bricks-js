@@ -64,15 +64,15 @@ class Ball {
   move(delta) {
     this.x += this.spdX * delta;
     this.y += this.spdY * delta;
-    if (this.x - this.radius < 0 || this.x + this.radius > Game.canvas.width) {
+    if (this.x - this.radius < 0 || this.x + this.radius > World.canvas.width) {
       this.spdX *= -1;
     }
     if (this.y - this.radius < 0) {
       this.spdY *= -1;
     }
-    if (this.y + this.radius > Game.canvas.height) {
-      this.x = Game.canvas.width / 2;
-      this.y = Game.canvas.height / 2;
+    if (this.y + this.radius > World.canvas.height) {
+      this.x = World.canvas.width / 2;
+      this.y = World.canvas.height / 2;
       this.spdX = this.base_spd;
       if (getRandomBetween(0, 1) > 0.5) this.spdX *= -1;
     }
