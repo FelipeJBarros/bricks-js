@@ -6,9 +6,8 @@ class World {
   static timeStep = 1000 / this.FPS;
   static lag = 0;
 
-  // static gameStatus = "initial";
-  static gameStatus = "win";
-
+  static gameStatus = "initial";
+  
   static ball = new Ball(
     World.canvas.width / 2,
     World.canvas.height / 2,
